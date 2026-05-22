@@ -166,6 +166,46 @@
     box-shadow: 0 0 8px var(--ember-hot);
     animation: pulse 2s ease-in-out infinite;
   }
+
+  .top-right {
+    display: flex;
+    align-items: center;
+    gap: clamp(14px, 2vw, 22px);
+  }
+
+  .donate-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 16px;
+    background: var(--ember);
+    color: var(--bg-0);
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 1px solid var(--ember);
+    box-shadow: 0 0 18px rgba(214, 148, 59, 0.25);
+    transition: background 0.25s ease, border-color 0.25s ease,
+                transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .donate-btn svg {
+    width: 14px;
+    height: 14px;
+  }
+  .donate-btn:hover {
+    background: var(--ember-hot);
+    border-color: var(--ember-hot);
+    transform: translateY(-1px);
+    box-shadow: 0 0 26px rgba(240, 179, 90, 0.45);
+  }
+
+  @media (max-width: 620px) {
+    .status-tag span:last-child { display: none; }
+    .donate-btn { padding: 8px 12px; letter-spacing: 0.2em; }
+  }
   @keyframes pulse {
     0%, 100% { opacity: 1; transform: scale(1); }
     50%      { opacity: 0.4; transform: scale(0.85); }
@@ -724,9 +764,23 @@
       <span class="sigil"></span>
       <span>UNBOUND&nbsp;ONLINE</span>
     </div>
-    <div class="status-tag">
-      <span class="pulse-dot"></span>
-      <span>PRE-ALPHA // FORGING</span>
+    <div class="top-right">
+      <div class="status-tag">
+        <span class="pulse-dot"></span>
+        <span>PRE-ALPHA // FORGING</span>
+      </div>
+      <!-- TODO: replace YOUR-HANDLE-HERE with your real PayPal handle (or paste the full checkout URL) -->
+      <a class="donate-btn"
+         href="https://www.paypal.com/ncp/payment/DF26NUPDXNJHL"
+         target="_blank"
+         rel="noopener"
+         aria-label="Support development via PayPal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/>
+        </svg>
+        <span>Donate</span>
+      </a>
     </div>
   </header>
 
